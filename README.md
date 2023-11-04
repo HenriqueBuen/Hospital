@@ -24,3 +24,66 @@ Deseja-se ainda informatizar a receita do médico, de maneira que, no encerramen
 
 
 
+
+Projeto de Sistema de Gerenciamento de Clínicas Médicas
+
+Este é um projeto de um sistema de gerenciamento de clínicas médicas que utiliza um banco de dados MySQL para armazenar informações sobre pacientes, convênios, especialidades médicas, médicos, consultas e receitas médicas.
+Estrutura de Dados
+Banco de Dados MySQL
+
+    Central de Atendimento
+        Tabela: central_atendimento
+            Campos:
+                id (Chave Primária)
+                nome
+    Cadastro do Paciente
+        Tabela: pacientes
+            Campos:
+                id (Chave Primária)
+                nome
+                data_nascimento
+                rg
+                endereço
+                telefone
+                email
+                cpf
+    Convênio
+        Tabela: convenios
+            Campos:
+                id (Chave Primária)
+                nome
+                tempo_carencia
+                cnpj
+    Especialidades
+        Tabela: especialidades
+            Campos:
+                id (Chave Primária)
+                nome
+    Médicos
+        Tabela: medicos
+            Campos:
+                id (Chave Primária)
+                nome
+                especialidade_id (Chave Estrangeira para a tabela especialidades)
+    Consultas
+        Tabela: consultas
+            Campos:
+                id (Chave Primária)
+                data
+                hora
+                valor_particular
+                convenio_id (Chave Estrangeira para a tabela convenios)
+                paciente_id (Chave Estrangeira para a tabela pacientes)
+                medico_id (Chave Estrangeira para a tabela medicos)
+    Receita Médica
+        Tabela: receitas_medicas
+            Campos:
+                id (Chave Primária)
+                consulta_id (Chave Estrangeira para a tabela consultas)
+                medicamento
+                quantidade
+                instrucoes_uso
+                relatorio_consulta
+
+
+
