@@ -1,5 +1,5 @@
 # Hospital
-
+## Descrição Atividade
 
 Um pequeno hospital local busca desenvolver um novo sistema que atenda melhor às suas necessidades. Atualmente, parte da operação ainda se apoia em planilhas e arquivos antigos, mas espera-se que esses dados sejam transferidos para o novo sistema assim que ele estiver funcional. Neste momento, é necessário analisar com cuidado as necessidades desse cliente e sugerir uma estrutura de banco de dados adequada por meio de um Diagrama Entidade-Relacionamento.
 
@@ -17,7 +17,7 @@ As consultas também têm sido registradas em planilhas, com data e hora de real
 Deseja-se ainda informatizar a receita do médico, de maneira que, no encerramento da consulta, ele possa registrar os medicamentos receitados, a quantidade e as instruções de uso. A partir disso, espera-se que o sistema imprima um relatório da receita ao paciente ou permita sua visualização via internet.
 
 
-
+# Parte 01
 
 ![Untitled Diagram drawio](https://github.com/HenriqueBuen/Hospital/assets/142261748/31629b08-75f2-488c-9a24-5cfd9b50eda7)
 
@@ -87,9 +87,9 @@ Banco de Dados MySQL
 
 
 
-      
+# Parte 02      
                
-# Sistema de Gerenciamento Hospitalar
+## Sistema de Gerenciamento Hospitalar
 
 Este repositório contém um esquema de banco de dados e um script SQL para um Sistema de Gerenciamento Hospitalar. O sistema é projetado para gerenciar pacientes, médicos, consultas e agora inclui o módulo de gerenciamento de internações.
 Contexto
