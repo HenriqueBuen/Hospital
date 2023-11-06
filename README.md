@@ -121,15 +121,17 @@ Passos Realizados
 
 
 
--- Tabela: central_atendimento
--- Descrição: Registra informações da central de atendimento do hospital.
+### Tabela: central_atendimento
+#### Descrição: Registra informações da central de atendimento do hospital.
+```
 CREATE TABLE central_atendimento (
     id INT PRIMARY KEY,  -- Chave Primária
     nome VARCHAR(255)    -- Nome da central de atendimento
 );
-
--- Tabela: pacientes
--- Descrição: Armazena informações sobre os pacientes.
+```
+### Tabela: pacientes
+#### Descrição: Armazena informações sobre os pacientes.
+```
 CREATE TABLE pacientes (
     id INT PRIMARY KEY,  -- Chave Primária
     nome VARCHAR(255),   -- Nome do paciente
@@ -140,34 +142,38 @@ CREATE TABLE pacientes (
     email VARCHAR(255),    -- Endereço de e-mail do paciente
     cpf VARCHAR(20)        -- Número de CPF do paciente
 );
-
--- Tabela: convenios
--- Descrição: Armazena informações sobre os convênios médicos.
+```
+### Tabela: convenios
+#### Descrição: Armazena informações sobre os convênios médicos.
+```
 CREATE TABLE convenios (
     id INT PRIMARY KEY,  -- Chave Primária
     nome VARCHAR(255),   -- Nome do convênio médico
     tempo_carencia INT,   -- Tempo de carência em meses
     cnpj VARCHAR(20)      -- Número de CNPJ do convênio
 );
-
--- Tabela: especialidades
--- Descrição: Registra informações sobre as especialidades médicas.
+```
+### Tabela: especialidades
+#### Descrição: Registra informações sobre as especialidades médicas.
+```
 CREATE TABLE especialidades (
     id INT PRIMARY KEY,  -- Chave Primária
     nome VARCHAR(255)    -- Nome da especialidade médica
 );
-
--- Tabela: medicos
--- Descrição: Armazena informações sobre os médicos, incluindo sua especialidade.
+```
+### Tabela: medicos
+#### Descrição: Armazena informações sobre os médicos, incluindo sua especialidade.
+```
 CREATE TABLE medicos (
     id INT PRIMARY KEY,  -- Chave Primária
     nome VARCHAR(255),   -- Nome do médico
     especialidade_id INT, -- Chave Estrangeira para a tabela especialidades
     FOREIGN KEY (especialidade_id) REFERENCES especialidades(id)
 );
-
--- Tabela: consultas
--- Descrição: Registra informações sobre as consultas médicas, incluindo médico, paciente e convênio.
+```
+### Tabela: consultas
+#### Descrição: Registra informações sobre as consultas médicas, incluindo médico, paciente e convênio.
+```
 CREATE TABLE consultas (
     id INT PRIMARY KEY,       -- Chave Primária
     data DATE,               -- Data da consulta
@@ -180,9 +186,11 @@ CREATE TABLE consultas (
     FOREIGN KEY (paciente_id) REFERENCES pacientes(id),
     FOREIGN KEY (medico_id) REFERENCES medicos(id)
 );
+```
 
--- Tabela: receitas_medicas
--- Descrição: Registra informações sobre as receitas médicas emitidas após as consultas.
+### Tabela: receitas_medicas
+#### Descrição: Registra informações sobre as receitas médicas emitidas após as consultas.
+```
 CREATE TABLE receitas_medicas (
     id INT PRIMARY KEY,            -- Chave Primária
     consulta_id INT,               -- Chave Estrangeira para a tabela consultas
@@ -191,9 +199,10 @@ CREATE TABLE receitas_medicas (
     instrucoes_uso TEXT,          -- Instruções de uso do medicamento
     relatorio_consulta TEXT       -- Relatório da consulta
 );
-
--- Tabela: internacoes
--- Descrição: Armazena informações sobre as internações de pacientes.
+```
+### Tabela: internacoes
+#### Descrição: Armazena informações sobre as internações de pacientes.
+```
 CREATE TABLE internacoes (
     id INT PRIMARY KEY,             -- Chave Primária
     data_entrada DATE,             -- Data de entrada na internação
@@ -207,9 +216,10 @@ CREATE TABLE internacoes (
     FOREIGN KEY (medico_responsavel_id) REFERENCES medicos(id),
     FOREIGN KEY (enfermeiro_id) REFERENCES profissionais_enfermagem(id)
 );
-
--- Tabela: quartos
--- Descrição: Registra informações sobre os quartos utilizados nas internações.
+```
+### Tabela: quartos
+#### Descrição: Registra informações sobre os quartos utilizados nas internações.
+```
 CREATE TABLE quartos (
     id INT PRIMARY KEY,          -- Chave Primária
     numero INT,                 -- Número do quarto
@@ -218,22 +228,24 @@ CREATE TABLE quartos (
     FOREIGN KEY (tipo_quarto_id) REFERENCES tipos_quartos(id),
     FOREIGN KEY (internacao_id) REFERENCES internacoes(id)
 );
-
--- Tabela: tipos_quartos
--- Descrição: Armazena informações sobre os tipos de quartos disponíveis no hospital.
+```
+### Tabela: tipos_quartos
+#### Descrição: Armazena informações sobre os tipos de quartos disponíveis no hospital.
+```
 CREATE TABLE tipos_quartos (
     id INT PRIMARY KEY,         -- Chave Primária
     descricao VARCHAR(255),     -- Descrição do tipo de quarto
     valor_diario DECIMAL(10, 2) -- Valor diário do quarto
 );
-
--- Tabela: profissionais_enfermagem
--- Descrição: Registra informações sobre os profissionais de enfermagem.
+```
+### Tabela: profissionais_enfermagem
+#### Descrição: Registra informações sobre os profissionais de enfermagem.
+```
 CREATE TABLE profissionais_enfermagem (
     id INT PRIMARY KEY,                    -- Chave Primária
     nome VARCHAR(255),                    -- Nome do profissional de enfermagem
     cpf VARCHAR(20),                      -- Número de CPF do profissional de enfermagem
     registro_conselho_enfermagem VARCHAR(20) -- Número de registro no conselho de enfermagem (CRE)
 );
-
+```
 
